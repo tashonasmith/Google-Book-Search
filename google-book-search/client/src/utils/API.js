@@ -15,10 +15,12 @@ export default {
         return axios.get("/api/books" + id)
     },
 
+    //Saves book to the database
     saveBook: function (savedBooks) {
         return axios.post("/api/books", savedBooks)
     },
 
+    //Delete book by id
     deleteBook: function(id) {
         return axios.delete("/api/books" + id)
     }

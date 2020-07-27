@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
-import Nav from "../components/Nav/index"
-import Jumbotron from "../components/Jumbotron/index"
-import SavedBooks from "../components/Saved/index"
+import BooksSaved from "../components/Saved/index"
+import API from "../utils/API"
 
 class Saved extends Component {
     state = {
-        books: [],
-        title: "",
-        authors: "",
-        description: "",
-        image: "",
-        link: ""
+        savedBooks: [],
     }
 
     componentDidMount() {
-        console.log("component did mount")
-        this.loadBooks()
+        API.getBooks()
+          .then(res => this.setState({ savedBooks: res.data }))
+          .catch(err=> console.log(err))
+    }
+
+    handleDeleteButton = id => {
+        API.deleteBook(id)
+          .then(res => this.componentDidMount())
+          .catch(err => console.log(err))
     }
 
     render() {
         return (
             <div>
-               <Nav />
-               <Jumbotron />
-               <SavedBooks /> 
+               <BooksSaved /> 
             </div>
         );
     }

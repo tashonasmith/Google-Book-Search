@@ -15,7 +15,6 @@ const Results = props => {
                      <div id={book.title + "Card"} key={book._id}>
                          <h1 className="bookTitle">{book.title}</h1>
                          <h3 className="bookAuthors">{book.authors}</h3>
-                         <p className="bookLink">{book.link}</p>
                          <img src={book.image} alt={book.title} />
                          <p className="bookDescription">{book.description}</p>
                      </div> 
